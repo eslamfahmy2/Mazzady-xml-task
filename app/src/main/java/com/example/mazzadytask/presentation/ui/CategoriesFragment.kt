@@ -18,7 +18,6 @@ import com.example.mazzadytask.presentation.utils.ObserverCallbacks
 import com.example.mazzadytask.presentation.utils.OptionsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class CategoriesFragment : BaseFragment<CategoriesFragmentBinding>() {
 
