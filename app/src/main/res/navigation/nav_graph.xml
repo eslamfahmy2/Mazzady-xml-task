@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/categoriesFragment">
+
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.mazzadytask.presentation.ui.CategoriesFragment"
+        android:label="CategoriesFragment">
+        <action
+            android:id="@+id/action_categoriesFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_tableFragment"
+            app:destination="@id/tableFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.mazzadytask.presentation.ui.DetailsFragment"
+        android:label="DetailsFragment" />
+    <fragment
+        android:id="@+id/tableFragment"
+        android:name="com.example.mazzadytask.presentation.ui.TableFragment"
+        android:label="TableFragment" >
+        <action
+            android:id="@+id/action_tableFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+</navigation>
