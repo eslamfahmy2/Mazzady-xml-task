@@ -1,4 +1,4 @@
-package com.testapp.data.networking
+package com.example.mazzadytask.networking
 
 import com.example.mazzadytask.networking.dto.Categories
 import com.example.mazzadytask.networking.dto.SubCategoryDto

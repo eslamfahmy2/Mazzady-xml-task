@@ -38,7 +38,7 @@
                         android:editable="false"
                         android:enabled="false"
                         android:focusable="false"
-                        android:hint="Main Category"
+                        android:hint="فئة"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -72,7 +72,7 @@
                         android:editable="false"
                         android:enabled="false"
                         android:focusable="false"
-                        android:hint="Sub Category"
+                        android:hint="فئة فرعية"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>

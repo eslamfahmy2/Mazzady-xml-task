@@ -10,12 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mazzadytask.R
 import com.example.mazzadytask.databinding.CategoriesFragmentBinding
 import com.example.mazzadytask.networking.dto.SubCategoryDto
-import com.example.mazzadytask.presentation.common.BaseFragment
-import com.example.mazzadytask.presentation.common.BottomOptionsSheet
-import com.example.mazzadytask.presentation.common.BottomSheet
-import com.example.mazzadytask.presentation.common.showDialog
+import com.example.mazzadytask.presentation.common.*
 import com.example.mazzadytask.presentation.utils.ObserverCallbacks
-import com.example.mazzadytask.presentation.utils.OptionsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,17 +23,24 @@ class CategoriesFragment : BaseFragment<CategoriesFragmentBinding>() {
 
     override fun getViewBinding() = CategoriesFragmentBinding.inflate(layoutInflater)
 
-    private val listener = { item: SubCategoryDto, index: Int ->
-        BottomOptionsSheet(
-            context = requireContext(),
-            options = item.options ?: listOf(),
-            title = item.name
-        ) { option ->
-            mainViewModel.setOption(item, option, index)
+    //on option item selected
+    private val listener = { item: SubCategoryDto, index: Int, isSetOtherOption: Boolean ->
+        //open options child bottom sheet
+        if (isSetOtherOption) {
+            mainViewModel.setOtherOption(item, index)
             initOptionAdapter()
-        }.show()
+        } else
+            OptionsBottomSheet(
+                context = requireContext(),
+                options = item.options ?: listOf(),
+                title = item.name
+            ) { option, isOtherSelected ->
+                mainViewModel.setOption(item, option, index, isOtherSelected)
+                initOptionAdapter()
+            }.show()
     }
 
+    //render options data
     private fun initOptionAdapter() {
         optionsAdapter = OptionsAdapter(mainViewModel.getOptions())
         optionsAdapter.setListener(listener)
@@ -49,21 +52,24 @@ class CategoriesFragment : BaseFragment<CategoriesFragmentBinding>() {
             ObserverCallbacks(
                 mainViewModel.categoriesScreenEvent,
                 success = {
+                    //on load all categories
                     binding.main.visibility = View.VISIBLE
                     binding.btnTry.visibility = View.GONE
                     binding.inputViewMain.setOnClickListener {
-                        BottomSheet(
+                        //on main category clicked
+                        //open bottom sheet
+                        MainCategoriesBottomSheet(
                             requireContext(),
                             mainViewModel.getMainCategories()
-                        ) { value ->
-                            binding.inputTextMain.setText(value)
-                            mainViewModel.setSelectedCategory(value)
+                        ) { category ->
+                            binding.inputTextMain.setText(category)
                             binding.inputTextSub.setText("")
+                            mainViewModel.setSelectedCategory(category)
                             mainViewModel.clearOptions()
                         }.show()
                     }
                     binding.inputViewSub.setOnClickListener {
-                        BottomSheet(
+                        MainCategoriesBottomSheet(
                             requireContext(),
                             mainViewModel.getSubCategories()
                         ) { value ->
@@ -83,7 +89,7 @@ class CategoriesFragment : BaseFragment<CategoriesFragmentBinding>() {
                     }
                 }
             ),
-
+            //on options loaded
             ObserverCallbacks(
                 mainViewModel.optionsEvent,
                 success = { data ->

@@ -25,10 +25,12 @@ data class SubCategoryDto(
     @SerializedName("value")
     val value: String?,
 
-    var selectedOption: String,
     var parentId: Int? = null,
     var parentOption: String? = null,
-    val isOther: Boolean = false,
+
+    var isOther: Boolean = false,
+    var selectedOption: String? = null,
+    var otherOption: String? = null,
 )
 
 

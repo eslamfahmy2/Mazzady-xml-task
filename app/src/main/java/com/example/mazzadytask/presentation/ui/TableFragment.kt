@@ -55,12 +55,12 @@ class TableFragment : BaseFragment<TableFragmentBinding>() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.bind(items[position], position)
+            holder.bind(items[position])
         }
 
         override fun getItemCount() = items.size
         inner class ViewHolder(itemView: RvItemBinding) : RecyclerView.ViewHolder(itemView.root) {
-            fun bind(item: Pair<String, String?>, position: Int) {
+            fun bind(item: Pair<String, String?>) {
                 binding.apply {
                     this.tvKey.text = item.first
                     this.tvTitle.text = item.second

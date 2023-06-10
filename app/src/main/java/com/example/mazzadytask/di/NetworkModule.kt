@@ -1,7 +1,7 @@
 package com.example.mazzadytask.di
 
 import com.example.mazzadytask.BuildConfig
-import com.testapp.data.networking.AppServices
+import com.example.mazzadytask.networking.AppServices
 import com.example.mazzadytask.networking.interceptor.AuthInterceptor
 
 import com.example.mazzadytask.networking.interceptor.ConnectivityInterceptor

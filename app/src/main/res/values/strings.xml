@@ -4,6 +4,6 @@
     <string name="no_internet_connection_error_coroutine">Please make sure your internet connection is stable and try again.</string>
     <string name="server_error_message">A server error has occurred %1$s</string>
     <string name="unknown_error">Unknown error</string>
-    <string name="search">Search...</string>
+    <string name="search">بحث…</string>
     <string name="internet_timeout_error">"internet time out "</string>
 </resources>

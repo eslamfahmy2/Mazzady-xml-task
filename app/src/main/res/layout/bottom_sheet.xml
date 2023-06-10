@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/imgClose"
@@ -17,13 +19,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:background="@drawable/bg_gray_cir"
+            android:contentDescription="close"
             android:padding="8dp"
             android:src="@drawable/ic_baseline_close_24" />
 
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -41,46 +44,33 @@
         android:layout_margin="16dp"
         android:background="@drawable/bg_gray"
         android:iconifiedByDefault="false"
-        android:queryHint="Search Here..." />
+        android:queryHint="ابحث هنا" />
 
 
-    <FrameLayout
-        android:id="@+id/otherLayout"
+    <TextView
+        android:id="@+id/tvOther"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/tvOther"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:gravity="end"
-            android:padding="16dp"
-            android:text="اخر"
-            android:textAlignment="viewEnd"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/etOther"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_gray"
-            android:hint="other"
-            android:imeOptions="actionDone"
-            android:padding="12dp"
-            android:singleLine="true"
-            android:visibility="gone" />
-
-    </FrameLayout>
+        android:layout_gravity="end"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="end"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="اخر"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <ListView
         android:id="@+id/rvItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp" />
 
 
 </LinearLayout>

@@ -1,35 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="false"
+            app:endIconCheckable="true"
+            app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:editable="false"
+                android:enabled="false"
+                android:focusable="false"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/inputView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayout"
+        android:id="@+id/layoutOther"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:clickable="true"
-        android:focusable="false"
-        app:endIconCheckable="true"
-        app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
-        app:endIconMode="custom">
+        android:focusable="true"
+        android:visibility="gone">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputText"
+            android:id="@+id/otherText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:editable="false"
-            android:enabled="false"
-            android:focusable="false"
+            android:editable="true"
+            android:enabled="true"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:focusable="true"
             android:textColor="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <View
-        android:id="@+id/inputView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</FrameLayout>
+
+</LinearLayout>

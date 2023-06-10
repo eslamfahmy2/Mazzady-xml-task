@@ -23,7 +23,7 @@
                 android:background="@drawable/border_gray"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="Key"
+                android:text="الفئة"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -35,7 +35,7 @@
                 android:background="@drawable/border_gray"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="value"
+                android:text="فئة فرعية"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
